@@ -13,8 +13,8 @@ int ledB = 3;	// L2
 int ledC = 4;	// L3
 int ledD = 5;	// L4
 int pump = 6;	// PUMP
-int heater = 8; // HEAT
-int cooler = 9; // COOL
+int heater = 7; // HEAT
+int cooler = 8; // COOL
 
 /********** MAIN SETUP FUNCTION **********/
 void setup()
