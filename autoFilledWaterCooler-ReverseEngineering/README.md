@@ -53,11 +53,11 @@ As seen on the schematic, the controller gets several input signals
     _*Each led needs one output for the VCC and the GND on another, so each led on means two outputs setting.*_
 
     -   **ON:** indicates device is on
-        -   VCC =
-        -   GND =
+        -   VCC = L1
+        -   GND = L2
     -   **FILLING:** indicates pump is on
-        -   VCC =
-        -   GND =
+        -   VCC = L3
+        -   GND = L2
     -   **HEAT:** indicates heater is on
         -   VCC =
         -   GND =
