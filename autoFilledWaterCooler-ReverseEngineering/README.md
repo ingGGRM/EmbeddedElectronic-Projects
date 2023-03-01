@@ -23,26 +23,26 @@ The U2 device is an ULN2001 driver that uses U3 signals to control the state of 
 As seen on the schematic, the controller gets several input signals
 
 1. **FLOAT:** wather tank level (ADC)
-    - Empty = 1.4V
-    - Mid = 0V
-    - Full 0.8V
+    - Empty = 1.4V  (ADC = 290)
+    - Mid = 0V (ADC = 171)
+    - Full 0.8V (ADC = 171)
 2. **FLOAT-P:** water overfilling detection
     - Normal = 5V
     - Overfilled = 0V
 3. **CN2:** lower room door state
-    - Opened =
-    - Closed =
+    - Opened = 5V
+    - Closed = 0V
 4. **SW-H&C:** Heater and Cooler On/Off switches (ADC)
-    - None = 5V
-    - Heat =
-    - Cool =
-    - Heat & Cool =
+    - None = 5V (ADC = 1023)
+    - Heat = (ADC = 296)
+    - Cool = (ADC = 173)
+    - Heat & Cool = (ADC = 121)
 5. **TR-H:** current heat temperature (ADC)
-    - Normal =
-    - Heat =
+    - Normal = (ADC = 296)
+    - Heat = (ADC = )
 6. **TR-C:** current cooling temperature (ADC)
-    - Normal =
-    - Cool =
+    - Normal = (ADC = 277)
+    - Cool = (ADC = )
 
 ## **Outputs**
 
