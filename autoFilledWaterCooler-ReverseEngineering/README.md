@@ -18,29 +18,35 @@ In the image, the job is the replacement of the U3 device, which represents the 
 
 The U2 device is an ULN2001 driver that uses U3 signals to control the state of the Heat and Cool relays.
 
+### **Some things changed to avoid future faults and to replace the damaged programmable device were:**
+
+1. **Programmable device:** replaced by a ATmega328P 28pin IC, using Arduino Uno as programmer.
+2. **Pump activation:** originally used a tiny BJT transistor that drove to the device general fault and microcontroller damage. It was replaced using a 12VDC Relay and a PC817 Optocoupler.
+3. **Cooler and Heater activations:** originally used an ULN device to switch each 12VCD Realay. It was replaced by two PC817 Optocouplers.
+
 ## **Inputs**
 
 As seen on the schematic, the controller gets several input signals
 
-1. **FLOAT:** wather tank level (ADC)
-    - Empty = 1.4V  (ADC = 290)
-    - Mid = 0V (ADC = 171)
+1. **FLOAT:** wather tank level **(ADC)**
+    - Empty = 1.4V (ADC = 290)
+    - Mid = 5V (ADC = 1023)
     - Full 0.8V (ADC = 171)
-2. **FLOAT-P:** water overfilling detection
+2. **FLOAT-P:** water overfilling detection **(DIGITAL)**
     - Normal = 5V
     - Overfilled = 0V
-3. **CN2:** lower room door state
-    - Opened = 5V
-    - Closed = 0V
-4. **SW-H&C:** Heater and Cooler On/Off switches (ADC)
+3. **CN2:** lower room door state **(DIGITAL)**
+    - Opened = 0V
+    - Closed = 5V
+4. **SW-H&C:** Heater and Cooler On/Off switches **(ADC)**
     - None = 5V (ADC = 1023)
     - Heat = (ADC = 296)
     - Cool = (ADC = 173)
     - Heat & Cool = (ADC = 121)
-5. **TR-H:** current heat temperature (ADC)
+5. **TR-H:** current heat temperature **(ADC)**
     - Normal = (ADC = 296)
     - Heat = (ADC = )
-6. **TR-C:** current cooling temperature (ADC)
+6. **TR-C:** current cooling temperature **(ADC)**
     - Normal = (ADC = 277)
     - Cool = (ADC = )
 
@@ -59,18 +65,23 @@ As seen on the schematic, the controller gets several input signals
         -   VCC = L3
         -   GND = L2
     -   **HEAT:** indicates heater is on
-        -   VCC =
-        -   GND =
+        -   VCC = L4
+        -   GND = L2
     -   **COOL:** indicates the cooler is on
-        -   VCC =
-        -   GND =
+        -   VCC = L1
+        -   GND = L4
 
 2.  **PUMP:** turns On/Off the water pump
-    -   On =
-    -   Off =
+    -   On = HIGH
+    -   Off = LOW
 3.  **HEAT:** turns On/Off the water heater
-    -   On =
-    -   Off =
+    -   On = HIGH
+    -   Off = LOW
 4.  **COOL:** turns On/Off the water cooler
-    -   On =
-    -   Off =
+    -   On = HIGH
+    -   Off = LOW
+
+## **The final circuit**
+
+<img src="./finalSchematic.jpg" width="auto"/>
+_*Removed the original damaged IC and wired sensors conections.*_
